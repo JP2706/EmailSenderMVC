@@ -1,0 +1,84 @@
+﻿@model EmailSenderMVC.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Zarejestruj";
+}
+
+<main aria-labelledby="title">
+    <h2 id="title">@ViewBag.Title.</h2>
+
+    @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+        <h4>Utwórz nowe konto.</h4>
+        <hr />
+        @*@Html.ValidationSummary("", new { @class = "text-danger" })*@
+        <div class="row">
+            <div class="col-6">
+                <div>
+                    @Html.LabelFor(m => m.Email, new { @class = "col-md-2 col-form-label" })
+                    <div >
+                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control LoginTextBox" })
+                        @Html.ValidationMessageFor(m => m.Email)
+                    </div>
+                </div>
+                <div>
+                    @Html.LabelFor(m => m.UserName, new { @class = "col-md-2 col-form-label" })
+                    <div>
+                        @Html.TextBoxFor(m => m.UserName, new { @class = "form-control LoginTextBox" })
+                        @Html.ValidationMessageFor(m => m.UserName)
+                    </div>
+                </div>
+                <div>
+                    @Html.LabelFor(m => m.Password, new { @class = "col-md-2 col-form-label" })
+                    <div>
+                        @Html.PasswordFor(m => m.Password, new { @class = "form-control LoginTextBox" })
+                        @Html.ValidationMessageFor(m => m.Password)
+                    </div>
+                </div>
+                <div>
+                    @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 col-form-label" })
+                    <div>
+                        @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control LoginTextBox" })
+                        @Html.ValidationMessageFor(m => m.ConfirmPassword)
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div>
+                    @Html.LabelFor(m => m.SentEmailAcountParams.HostSmtp, new { @class = "col-form-label" })
+                        @Html.TextBoxFor(m => m.SentEmailAcountParams.HostSmtp, new { @class = "form-control LoginTextBox" })
+                        @Html.ValidationMessageFor(m => m.SentEmailAcountParams.HostSmtp)
+                </div>
+                <div>
+                    @Html.LabelFor(m => m.SentEmailAcountParams.EnableSsl, new { @class = "col-md-2 col-form-label" })
+                        @Html.CheckBoxFor(m => m.SentEmailAcountParams.EnableSsl)
+                </div>
+                <div>
+                    @Html.LabelFor(m => m.SentEmailAcountParams.Port, new { @class = "col-md-2 col-form-label" })
+                        @Html.TextBoxFor(m => m.SentEmailAcountParams.Port, new { @class = "form-control LoginTextBox" })
+                        @Html.ValidationMessageFor(m => m.SentEmailAcountParams.Port)
+                </div>
+                <div>
+                    @Html.LabelFor(m => m.SentEmailAcountParams.SenderEmail, new { @class = "col-md-2 col-form-label" })
+                        @Html.TextBoxFor(m => m.SentEmailAcountParams.SenderEmail, new { @class = "form-control LoginTextBox" })
+                        @Html.ValidationMessageFor(m => m.SentEmailAcountParams.SenderEmail)
+                </div>
+                <div>
+                    @Html.LabelFor(m => m.SentEmailAcountParams.SenderEmailPassword, new { @class = "col-md-2 col-form-label" })
+                        @Html.PasswordFor(m => m.SentEmailAcountParams.SenderEmailPassword, new { @class = "form-control LoginTextBox" })
+                        @Html.ValidationMessageFor(m => m.SentEmailAcountParams.SenderEmailPassword)
+                </div>
+            </div>
+        </div>
+        
+        <div class="row m-3">
+            <div class="offset-md-2 col-md-10">
+                <input type="submit" value="Zarejestruj" class="btn btn-outline-dark" />
+            </div>
+        </div>
+    }
+</main>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

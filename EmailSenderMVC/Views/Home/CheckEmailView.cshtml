@@ -1,0 +1,28 @@
+﻿@model EmailSenderMVC.Models.ViewModels.EditSentEmailViewModel
+
+@{
+    ViewBag.Title = Model.Email.Title;
+}
+<h1>@Model.Heading</h1>
+
+<div class="row">
+    <div class="form-group mt-3 mb-3 col-lg-6">
+        @Html.LabelFor(m => m.Email.Title, new { @class = "mb-2" })
+        @Html.TextBoxFor(m => m.Email.Title, new { @class = "form-control", autofocus = "autofocus", @readonly = "readonly" })
+    </div>
+    <div class="form-group mt-3 mb-3 col-lg-6">
+        @Html.LabelFor(m => m.Email.Receivers, new { @class = "mb-2" })
+        @Html.TextBoxFor(m => m.Email.Receivers, new { @class = "form-control", @readonly = "readonly" })
+    </div>
+</div>
+
+
+<div class="form-group mt-3 mb-3">
+    @Html.LabelFor(m => m.Email.SenderName, new { @class = "mb-2" })
+    @Html.TextBoxFor(m => m.Email.SenderName, new { @class = "form-control", @readonly = "readonly" })
+</div>
+
+<div class="form-group mt-3 mb-3">
+    @Html.LabelFor(m => m.Email.Body, new { @class = "mb-2" })
+    @Html.TextAreaFor(m => m.Email.Body, new { @class = "form-control", rows = 12, @readonly = "readonly" })
+</div>

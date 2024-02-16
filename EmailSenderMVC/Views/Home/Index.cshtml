@@ -1,0 +1,45 @@
+﻿@model IEnumerable<EmailSenderMVC.Models.Domains.Email>
+@{
+    ViewBag.Title = "Skrzynka Nadawcza";
+}
+
+<h1 class="mb-3">Wysłane</h1>
+
+<button class="btn btn-primary mT-3 mb-3" onclick='window.location.href = "@Url.Action("SentEmailView", "Home")"'>Napisz Wiadomość</button>
+
+@if (Model != null && Model.Any())
+{
+
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">Tytuł</th>
+                <th scope="col">Data wysłania</th>
+                <th scope="col">Odbiorcy</th>
+                <th scope="col">Nazwa Nadawcy</th>
+                <th scope="col">Tekst</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var email in Model)
+            {
+                <tr>
+                    <td>
+                        <a class="font-wieght-bold" href="@Url.Action("CheckEmailView", "Home", new { id = email.Id })">@email.Title</a>
+                    </td>
+                    <td>@email.CreatedDate.ToString("dd-MM-yyyy")</td>
+                    <td>@email.Receivers</td>
+                    <td>@email.SenderName</td>
+                    <td>@email.Body</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>Brak wysłanych wiadomośći.</p>
+}
+    
+ 
+

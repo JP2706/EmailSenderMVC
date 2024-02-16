@@ -1,0 +1,58 @@
+﻿@model EmailSenderMVC.Models.ViewModels.EditSentEmailViewModel
+@{
+    ViewBag.Title = Model.Heading;
+}
+
+<h1>@Model.Heading</h1>
+
+<div class="row">
+    <div class="col-lg-6">
+        @if (Model.Email.Id == 0)
+        {
+            <p class="alert alert-primary mt-4 mb-4">
+                Tytuł oraz Odbiorcy są <strong>WYMAGANE</strong> oraz
+                odbiroców oddzielamy znakiem<strong> ";"</strong>
+            </p>
+        }
+    </div>
+    <div class="col-lg-12">
+        @using (Html.BeginForm("SentEmail", "Home"))
+        {
+            @Html.AntiForgeryToken()
+
+            @Html.HiddenFor(m => m.Email.Id)
+
+        <div class="row">
+            <div class="form-group mt-3 mb-3 col-lg-6">
+                @Html.LabelFor(m => m.Email.Title, new { @class = "mb-2" })
+                @Html.TextBoxFor(m => m.Email.Title, new { @class = "form-control", autofocus = "autofocus" })
+                @Html.ValidationMessageFor(x => x.Email.Title)
+            </div>
+
+            <div class="form-group mt-3 mb-3 col-lg-6">
+                @Html.LabelFor(m => m.Email.Receivers, new { @class = "mb-2" })
+                @Html.TextBoxFor(m => m.Email.Receivers, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.Email.Receivers)
+            </div>
+        </div>
+            
+            <div class="form-group mt-3 mb-3">
+                @Html.LabelFor(m => m.Email.SenderName, new { @class = "mb-2" })
+                @Html.TextBoxFor(m => m.Email.SenderName, new { @class = "form-control"})
+            </div>
+
+            <div class="form-group mt-3 mb-3">
+                @Html.LabelFor(m => m.Email.Body, new { @class = "mb-2" })
+                @Html.TextAreaFor(m => m.Email.Body, new { @class = "form-control", rows = 12})
+            </div>
+
+            <button class="btn btn-primary btn-lg mb-5 mt-3" type="submit">Wyślij</button>
+
+        }
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
