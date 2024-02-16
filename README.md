@@ -1,2 +1,2 @@
-# Tydzie 9/Lekcja 30
+# Tydzień 9/Lekcja 30
 EmailSenderMVC
