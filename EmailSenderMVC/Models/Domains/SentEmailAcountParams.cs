@@ -15,7 +15,7 @@ namespace EmailSenderMVC.Models.Domains
         [Display(Name = "Host Smtp")]
         public string HostSmtp { get; set; }
 
-        [Required(ErrorMessage = "Ssl jest wymagany")]
+        
         [Display(Name = "Ssl")]
         public bool EnableSsl { get; set; }
 

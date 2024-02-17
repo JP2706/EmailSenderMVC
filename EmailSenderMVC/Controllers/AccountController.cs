@@ -151,9 +151,11 @@ namespace EmailSenderMVC.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)
         {
-            //if (ModelState.IsValid)
+			var user = new ApplicationUser { UserName = model.UserName, Email = model.Email };
+            model.SentEmailAcountParams.UserId = user.Id;
+
+			//if (ModelState.IsValid)
             //{
-                var user = new ApplicationUser { UserName = model.UserName, Email = model.Email};
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {

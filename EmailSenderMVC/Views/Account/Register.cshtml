@@ -16,7 +16,7 @@
             <div class="col-6">
                 <div>
                     @Html.LabelFor(m => m.Email, new { @class = "col-md-2 col-form-label" })
-                    <div >
+                    <div>
                         @Html.TextBoxFor(m => m.Email, new { @class = "form-control LoginTextBox" })
                         @Html.ValidationMessageFor(m => m.Email)
                     </div>
@@ -46,31 +46,31 @@
             <div class="col-6">
                 <div>
                     @Html.LabelFor(m => m.SentEmailAcountParams.HostSmtp, new { @class = "col-form-label" })
-                        @Html.TextBoxFor(m => m.SentEmailAcountParams.HostSmtp, new { @class = "form-control LoginTextBox" })
-                        @Html.ValidationMessageFor(m => m.SentEmailAcountParams.HostSmtp)
+                    @Html.TextBoxFor(m => m.SentEmailAcountParams.HostSmtp, new { @class = "form-control LoginTextBox" })
+                    @Html.ValidationMessageFor(m => m.SentEmailAcountParams.HostSmtp)
                 </div>
                 <div>
                     @Html.LabelFor(m => m.SentEmailAcountParams.EnableSsl, new { @class = "col-md-2 col-form-label" })
-                        @Html.CheckBoxFor(m => m.SentEmailAcountParams.EnableSsl)
+                    @Html.CheckBoxFor(m => m.SentEmailAcountParams.EnableSsl)
                 </div>
                 <div>
                     @Html.LabelFor(m => m.SentEmailAcountParams.Port, new { @class = "col-md-2 col-form-label" })
-                        @Html.TextBoxFor(m => m.SentEmailAcountParams.Port, new { @class = "form-control LoginTextBox" })
-                        @Html.ValidationMessageFor(m => m.SentEmailAcountParams.Port)
+                    @Html.TextBoxFor(m => m.SentEmailAcountParams.Port, new { @class = "form-control LoginTextBox" })
+                    @Html.ValidationMessageFor(m => m.SentEmailAcountParams.Port)
                 </div>
                 <div>
                     @Html.LabelFor(m => m.SentEmailAcountParams.SenderEmail, new { @class = "col-md-2 col-form-label" })
-                        @Html.TextBoxFor(m => m.SentEmailAcountParams.SenderEmail, new { @class = "form-control LoginTextBox" })
-                        @Html.ValidationMessageFor(m => m.SentEmailAcountParams.SenderEmail)
+                    @Html.TextBoxFor(m => m.SentEmailAcountParams.SenderEmail, new { @class = "form-control LoginTextBox" })
+                    @Html.ValidationMessageFor(m => m.SentEmailAcountParams.SenderEmail)
                 </div>
                 <div>
                     @Html.LabelFor(m => m.SentEmailAcountParams.SenderEmailPassword, new { @class = "col-md-2 col-form-label" })
-                        @Html.PasswordFor(m => m.SentEmailAcountParams.SenderEmailPassword, new { @class = "form-control LoginTextBox" })
-                        @Html.ValidationMessageFor(m => m.SentEmailAcountParams.SenderEmailPassword)
+                    @Html.PasswordFor(m => m.SentEmailAcountParams.SenderEmailPassword, new { @class = "form-control LoginTextBox" })
+                    @Html.ValidationMessageFor(m => m.SentEmailAcountParams.SenderEmailPassword)
                 </div>
             </div>
         </div>
-        
+
         <div class="row m-3">
             <div class="offset-md-2 col-md-10">
                 <input type="submit" value="Zarejestruj" class="btn btn-outline-dark" />
